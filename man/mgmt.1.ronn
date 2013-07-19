@@ -1,0 +1,46 @@
+mgmt(1) -- manage users in Riak CS
+=======================================================================
+
+## SYNOPSIS ##
+
+`mgmt create admin admin@admin.com`
+
+## DESCRIPTION ##
+
+__mgmt__ is a command-line tool that aids in Riak CS user management.
+
+## RUNNING ##
+
+`mgmt create` is used to create users within Riak CS.
+
+If a valid username ane e-mail address is provided, `mgmt` will create that
+user in Riak CS.
+
+`mgmt list` is used to list the users in Riak CS.
+
+## OPTIONS ##
+
+These options control all modes of `mgmt`'s operation:
+
+  * `-v`, `--verbose`:
+    Increase verbosity.
+
+## CONFIGURATION ##
+
+`mgmt` expects the following environmental variables to be present when it is
+invoked:
+
+  * `RIAKCS_ACCESS_KEY_ID`:
+    Your Riak CS access key ID.
+  * `RIAKCS_SECRET_ACCESS_KEY`
+    Your Riak CS secret access key.
+
+## EXAMPLE ##
+
+Create a user named `admin` with the e-mail address `admin@admin.com`:
+
+    $ mgmt create admin admin@admin.com
+
+List all of the users in the system:
+
+    $ mgmt list

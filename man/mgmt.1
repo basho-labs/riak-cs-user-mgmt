@@ -1,0 +1,67 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "MGMT" "1" "July 2013" "" ""
+.
+.SH "NAME"
+\fBmgmt\fR \- manage users in Riak CS
+.
+.SH "SYNOPSIS"
+\fBmgmt create admin admin@admin\.com\fR
+.
+.SH "DESCRIPTION"
+\fBmgmt\fR is a command\-line tool that aids in Riak CS user management\.
+.
+.SH "RUNNING"
+\fBmgmt create\fR is used to create users within Riak CS\.
+.
+.P
+If a valid username ane e\-mail address is provided, \fBmgmt\fR will create that user in Riak CS\.
+.
+.P
+\fBmgmt list\fR is used to list the users in Riak CS\.
+.
+.SH "OPTIONS"
+These options control all modes of \fBmgmt\fR\'s operation:
+.
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Increase verbosity\.
+.
+.SH "CONFIGURATION"
+\fBmgmt\fR expects the following environmental variables to be present when it is invoked:
+.
+.IP "\(bu" 4
+\fBRIAKCS_ACCESS_KEY_ID\fR: Your Riak CS access key ID\.
+.
+.IP "\(bu" 4
+\fBRIAKCS_SECRET_ACCESS_KEY\fR Your Riak CS secret access key\.
+.
+.IP "" 0
+.
+.SH "EXAMPLE"
+Create a user named \fBadmin\fR with the e\-mail address \fBadmin@admin\.com\fR:
+.
+.IP "" 4
+.
+.nf
+
+$ mgmt create admin admin@admin\.com
+.
+.fi
+.
+.IP "" 0
+.
+.P
+List all of the users in the system:
+.
+.IP "" 4
+.
+.nf
+
+$ mgmt list
+.
+.fi
+.
+.IP "" 0
+
