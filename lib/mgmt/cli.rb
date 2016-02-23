@@ -30,10 +30,10 @@ class Mgmt::CLI < Thor
     Fog::RiakCS::Provisioning.new(
       riakcs_access_key_id: options["access_key"],
       riakcs_secret_access_key: options["secret_key"],
-      host: "s3.amazonaws.com",
+      host: options["site"],
       port: 80,
       connection_options: {
-        proxy: "http://localhost:8080"
+        proxy: "http://" + options["site"] + ":80"
       }
     )
   end
@@ -42,11 +42,12 @@ class Mgmt::CLI < Thor
     original_options = super
     default_options  = {
       "access_key" => ENV["RIAKCS_ACCESS_KEY_ID"],
-      "secret_key" => ENV["RIAKCS_SECRET_ACCESS_KEY"]
+      "secret_key" => ENV["RIAKCS_SECRET_ACCESS_KEY"],
+      "site" => ENV["RIAKCS_SITE"]
     }
 
-    if default_options["access_key"].nil? && default_options["secret_key"].nil?
-      error("Please set your RIAKCS_ACCESS_KEY_ID and RIAKCS_SECRET_ACCESS_KEY enviromental variables.")
+    if default_options["access_key"].nil? && default_options["secret_key"].nil? && default_options["site"].nil?
+      error("Please set your RIAKCS_ACCESS_KEY_ID and RIAKCS_SECRET_ACCESS_KEY and RIAKCS_SITE enviromental variables.")
       exit(1)
     end
 
