@@ -6,15 +6,20 @@ CS](https://github.com/basho/riak_cs) user management.
 ## Installation
 
 ```bash
-$ git clone git://github.com/hectcastro/riak-cs-user-mgmt.git
-$ cd riak-cs-user-mgmt
-$ rake install
+$ git clone
+$ bundle install
 ```
 
 ## Usage
 
+This won't behind a proxy.
+
 ```bash
-$ mgmt list
+export RIAKCS_ACCESS_KEY_ID=''
+export RIAKCS_SECRET_ACCESS_KEY=''
+export RIAKCS_SITE='storage.domain'
+
+$ bin/mgmt list
 email  display_name  name  key_id  key_secret  id  status
 ...
 $ mgmt create -v test3 test3@example.com
